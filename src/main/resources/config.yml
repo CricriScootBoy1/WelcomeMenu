@@ -1,0 +1,109 @@
+# ==============================================================
+#  WelcomeMenu - menu de bienvenue (Paper 1.21.x)
+#  Les textes utilisent le format MiniMessage :
+#    <red> <gold> <bold> <gradient:#ff2d2d:#7a0000>texte</gradient>
+#  Après une modification : /bienvenue reload
+# ==============================================================
+
+# true = le menu ne s'affiche qu'à la toute première connexion
+show-on-first-join-only: false
+
+# Délai avant l'ouverture à la connexion (20 ticks = 1 seconde)
+open-delay-ticks: 20
+
+# Écran tout noir tant que le menu est ouvert
+blackscreen: true
+
+music:
+  enabled: true
+  # Son vanilla (par défaut) : minecraft:music_disc.pigstep
+  # Son custom (via resource pack) : welcome:music.intro
+  sound: "minecraft:music_disc.pigstep"
+  volume: 1.0
+  pitch: 1.0
+
+menu:
+  # Nombre de lignes (1 à 6)
+  rows: 5
+  title: "<gradient:#ff2d2d:#7a0000><bold>❤ LIFESTEALZ ❤</bold></gradient>"
+  # Décor : fond noir + bordure rouge (mets "" pour désactiver la bordure)
+  filler: BLACK_STAINED_GLASS_PANE
+  border: RED_STAINED_GLASS_PANE
+  # false = impossible de fermer avec Échap, seul le bouton ferme le menu
+  close-with-escape: true
+
+# Actions possibles :
+#   NONE                 -> rien (juste de l'info)
+#   CLOSE                -> ferme le menu (et coupe la musique)
+#   PLAYER:commande      -> ferme le menu puis le joueur exécute la commande (sans /)
+#   CONSOLE:commande     -> ferme le menu puis la console exécute la commande (%player% = pseudo)
+items:
+  welcome:
+    slot: 4
+    material: TOTEM_OF_UNDYING
+    glow: true
+    name: "<gradient:#ff4d4d:#b30000><bold>Bienvenue sur LifestealZ</bold></gradient>"
+    lore:
+      - ""
+      - "<gray>Ici, chaque cœur compte."
+      - "<gray>Prends 30 secondes pour lire"
+      - "<gray>les infos ci-dessous."
+    action: NONE
+
+  rules:
+    slot: 20
+    material: WRITABLE_BOOK
+    name: "<gold><bold>📜 Règles du serveur</bold>"
+    lore:
+      - ""
+      - "<red>✘ <gray>Pas de triche, ni de mods avantageux"
+      - "<red>✘ <gray>Pas d'insultes ni de harcèlement"
+      - "<red>✘ <gray>Pas de bug abuse / duplication"
+      - "<red>✘ <gray>Pas de pub pour d'autres serveurs"
+      - ""
+      - "<dark_gray>Modifie ces lignes dans config.yml"
+    action: NONE
+
+  how-to-play:
+    slot: 22
+    material: NETHER_STAR
+    name: "<aqua><bold>❤ Comment jouer ?</bold>"
+    lore:
+      - ""
+      - "<green>+1 cœur <gray>quand tu tues un joueur"
+      - "<red>-1 cœur <gray>quand tu meurs"
+      - "<gray>Plus de cœurs = tu es éliminé !"
+      - ""
+      - "<dark_gray>Adapte ces lignes à ton serveur"
+    action: NONE
+
+  tips:
+    slot: 24
+    material: GOLDEN_APPLE
+    name: "<yellow><bold>✦ Conseils</bold>"
+    lore:
+      - ""
+      - "<gray>Garde toujours un peu de nourriture"
+      - "<gray>Méfie-toi des joueurs trop sympas..."
+      - "<gray>Tu peux rouvrir ce menu avec <white>/bienvenue"
+    action: NONE
+
+  close:
+    slot: 40
+    material: EMERALD
+    glow: true
+    name: "<green><bold>✔ J'AI COMPRIS - JOUER !</bold>"
+    lore:
+      - ""
+      - "<gray>Clique pour fermer le menu"
+      - "<gray>et commencer l'aventure."
+    action: CLOSE
+
+  # Exemple de bouton qui lance une commande (décommente et adapte) :
+  # afk:
+  #   slot: 38
+  #   material: CLOCK
+  #   name: "<light_purple><bold>Zone AFK</bold>"
+  #   lore:
+  #     - "<gray>Clique pour aller en zone AFK"
+  #   action: "PLAYER:afk"

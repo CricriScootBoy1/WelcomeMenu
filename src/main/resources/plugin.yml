@@ -1,0 +1,20 @@
+name: WelcomeMenu
+version: 1.0.0
+main: fr.welcomemenu.WelcomeMenu
+api-version: '1.21'
+author: LifestealZ
+description: Menu de bienvenue avec musique, écran noir et boutons
+
+commands:
+  bienvenue:
+    description: Ouvre le menu de bienvenue
+    usage: /bienvenue [reload]
+    aliases: [welcome, regles]
+
+permissions:
+  welcomemenu.admin:
+    description: Permet de recharger la configuration
+    default: op
+  welcomemenu.bypass:
+    description: Ne voit pas le menu automatiquement à la connexion
+    default: false
